@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "141793349554",
+    "project_id": "sync-app-b85ba",
+    "storage_bucket": "sync-app-b85ba.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141793349554:android:f0b6c25b1bc4931a3c5eab",
+        "android_client_info": {
+          "package_name": "com.example.medical"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX6dapTzV6Arj_XW-OaaSL61QSLIwVipA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
