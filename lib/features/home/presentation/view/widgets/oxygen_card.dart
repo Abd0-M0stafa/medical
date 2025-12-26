@@ -12,7 +12,10 @@ class OxygenCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Oxygen Level', style: TextStyle(color: Colors.grey)),
+          Text(
+            'Oxygen Level',
+            style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+          ),
           SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,7 +30,7 @@ class OxygenCard extends StatelessWidget {
           SizedBox(height: 12),
           Text(
             'Normal Range: 95% - 100%',
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: const Color.fromARGB(255, 131, 131, 131)),
           ),
         ],
       ),

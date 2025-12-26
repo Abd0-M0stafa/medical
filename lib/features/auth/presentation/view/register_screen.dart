@@ -1,11 +1,8 @@
-// register_screen.dart
 import 'package:flutter/material.dart';
 import 'package:medical/core/utils/validators.dart';
 import 'package:medical/core/widgets/app_text_field.dart';
 import 'package:medical/core/widgets/primary_button.dart';
 import 'package:medical/features/auth/presentation/view/widgets/gender_selector.dart';
-import 'package:medical/features/auth/presentation/view/widgets/patient_status_selector.dart';
-import 'package:medical/features/auth/presentation/view_model/auth_view_model.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -37,22 +34,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 height: 240,
                 child: Image.asset('assets/images/shield_vector.png'),
               ),
-              Center(
+              const Center(
                 child: Text(
                   'Create an account',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
-              Center(
+              const Center(
                 child: Text(
                   'Sign up to get started',
                   style: TextStyle(
                     fontSize: 17,
-                    color: const Color.fromARGB(255, 114, 113, 112),
+                    color: Color.fromARGB(255, 114, 113, 112),
                   ),
                 ),
               ),
-
               SizedBox(height: MediaQuery.of(context).size.height * 0.07),
               AppTextField(
                 label: 'Full Name',
@@ -70,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 label: 'Password',
                 controller: password,
                 validator: Validators.password,
-                obscure: true,
+                obscure: true, // هتشتغل أيقونة الفيزابيليتي
               ),
               const SizedBox(height: 16),
               GenderSelector(
@@ -79,17 +75,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               const SizedBox(height: 16),
 
-              // PatientStatusSelector(
-              //   value: vm.patientStatus,
-              //   onChanged: vm.setPatientStatus,
-              // ),
               const SizedBox(height: 24),
               PrimaryButton(
                 title: 'Create Account',
                 onPressed: () {
                   if (_formKey.currentState!.validate() &&
                       gender != null &&
-                      status != null) {}
+                      status != null) {
+                    // أضف هنا عملية التسجيل
+                  }
                 },
               ),
             ],

@@ -11,17 +11,24 @@ class HeartRateCard extends StatelessWidget {
       shadowColor: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text('Heart Rate', style: TextStyle(color: Colors.grey)),
+        children: [
+          Text(
+            'Heart Rate',
+            style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+          ),
           SizedBox(height: 8),
           Row(
             children: [
-              Icon(Icons.favorite, color: Colors.red),
-              SizedBox(width: 6),
+              SizedBox(width: 29),
+              SizedBox(
+                height: 50,
+                child: Image.asset("assets/images/heart_rate.png"),
+              ),
+              SizedBox(width: 50),
               Text(
                 '75 bpm',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Colors.red,
                 ),
@@ -33,7 +40,7 @@ class HeartRateCard extends StatelessWidget {
           SizedBox(height: 8),
           Text(
             'Normal Range: 60 - 100 bpm',
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: const Color.fromARGB(255, 131, 131, 131)),
           ),
         ],
       ),

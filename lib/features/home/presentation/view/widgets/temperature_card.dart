@@ -11,26 +11,40 @@ class TemperatureCard extends StatelessWidget {
       shadowColor: const Color(0xFF4A90E2), // لون بارد خفيف
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text(
             'Temperature',
-            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              color: Color.fromARGB(255, 0, 0, 0),
+              fontWeight: FontWeight.w500,
+            ),
           ),
           SizedBox(height: 10),
-          Text(
-            '36.8°C',
-            style: TextStyle(
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF0B5CFF),
-            ),
+          Row(
+            children: [
+              SizedBox(width: 30),
+              SizedBox(
+                height: 50,
+                child: Image.asset("assets/images/temp.png"),
+              ),
+              SizedBox(width: 50),
+
+              Text(
+                '36.8°C',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF0B5CFF),
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 14),
           TemperatureBar(value: 36.8, min: 36.5, max: 37.5),
           SizedBox(height: 12),
           Text(
             'Normal Range: 36.5° - 37.5°',
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: Color.fromARGB(255, 131, 131, 131)),
           ),
         ],
       ),
