@@ -25,7 +25,7 @@ class PrimaryButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(title),
+        child: Text(title, style: TextStyle(color: Colors.white)),
       ),
     );
   }

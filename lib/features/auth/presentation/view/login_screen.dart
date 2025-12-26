@@ -21,6 +21,29 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+              SizedBox(
+                height: 240,
+                child: Image.asset('assets/images/shield_vector.png'),
+              ),
+              Center(
+                child: Text(
+                  'Welcome back again',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Center(
+                child: Text(
+                  'Login to enter',
+                  style: TextStyle(
+                    fontSize: 17,
+                    color: const Color.fromARGB(255, 114, 113, 112),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+
               AppTextField(
                 label: 'Email',
                 controller: email,
