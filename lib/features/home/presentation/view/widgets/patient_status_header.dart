@@ -17,7 +17,6 @@ class PatientStatusHeader extends StatelessWidget {
               children: [
                 Icon(Icons.circle, color: Colors.green, size: 10),
                 SizedBox(width: 6),
-                Text('Live Update', style: AppTextStyles.subtitle),
               ],
             ),
           ],

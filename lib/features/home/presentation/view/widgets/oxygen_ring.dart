@@ -7,8 +7,8 @@ class OxygenRing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 110,
-      height: 110,
+      width: 100,
+      height: 100,
       child: CustomPaint(
         painter: OxygenPainter(percentage: 0.98),
         child: const Center(

@@ -12,9 +12,9 @@ class VitalsSection extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       children: const [
         OxygenCard(),
-        SizedBox(height: 16),
+        SizedBox(height: 25),
         HeartRateCard(),
-        SizedBox(height: 16),
+        SizedBox(height: 25),
         TemperatureCard(),
       ],
     );

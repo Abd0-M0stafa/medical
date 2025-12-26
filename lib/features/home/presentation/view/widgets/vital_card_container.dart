@@ -19,7 +19,10 @@ class VitalCardContainer extends StatelessWidget {
           // Card background
           Container(
             padding: const EdgeInsets.all(16),
-            decoration: const BoxDecoration(color: Color(0xFFFDFDFD)),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black.withAlpha(30), width: 1),
+              color: Color(0xFFFDFDFD),
+            ),
             child: child,
           ),
           Positioned(
@@ -28,14 +31,15 @@ class VitalCardContainer extends StatelessWidget {
             bottom: 0,
             child: IgnorePointer(
               child: Container(
-                height: 40,
+                height: 70,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
                       shadowColor.withOpacity(0.0),
-                      shadowColor.withOpacity(0.18),
+                      shadowColor.withOpacity(0.10),
+                      shadowColor.withOpacity(0.14),
                     ],
                   ),
                 ),

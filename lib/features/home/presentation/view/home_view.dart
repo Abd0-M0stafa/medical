@@ -10,15 +10,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: const Text('Alerts'),
-        actions: const [AlertsBadgeIcon(hasUnread: true), SizedBox(width: 12)],
-      ),
-      body: const Padding(
+      backgroundColor: const Color.fromARGB(255, 247, 246, 246),
+      body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            SizedBox(height: 60, child: Image.asset('assets/images/logo.png')),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             PatientStatusHeader(),
             SizedBox(height: 16),
             Expanded(child: VitalsSection()),

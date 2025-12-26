@@ -11,13 +11,16 @@ class OxygenCard extends StatelessWidget {
       shadowColor: const Color(0xFF0B5CFF),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text('Oxygen Level', style: TextStyle(color: Colors.grey)),
           SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.water_drop, size: 42, color: Color(0xFF0B5CFF)),
+              SizedBox(
+                height: 110,
+                child: Image.asset('assets/images/o2 (1).png'),
+              ),
               OxygenRing(),
             ],
           ),
