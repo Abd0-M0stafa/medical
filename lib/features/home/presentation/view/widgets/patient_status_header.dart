@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medical/core/theme/app_styles.dart';
+import 'package:medical/features/home/presentation/view_model/fetch_patient_info/fetch_patient_info_cubit.dart';
 
 class PatientStatusHeader extends StatelessWidget {
   const PatientStatusHeader({super.key});
@@ -11,8 +13,11 @@ class PatientStatusHeader extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text('Patient Status: Stable', style: AppTextStyles.title),
+          children: [
+            Text(
+              'Wearable Status: ${context.read<FetchPatientInfoCubit>().patientInfoModel!.state == '0' ? 'Not Wearing' : 'Wearing'}',
+              style: AppTextStyles.title,
+            ),
             Row(
               children: [
                 Icon(Icons.circle, color: Colors.green, size: 10),

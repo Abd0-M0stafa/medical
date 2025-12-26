@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:medical/features/auth/data/data_sources/local_datasource/hive_local_datasource.dart';
+import 'package:medical/features/auth/data/models/user_model.dart';
 import 'package:medical/features/auth/presentation/view/login_screen.dart';
+import 'package:medical/features/home/presentation/view/home_view.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -33,9 +36,12 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Navigate to RegisterScreen after 3 seconds
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(
-        context,
-      ).pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
+      UserModel? user = HiveLocalDatasource().getUserData();
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => user == null ? LoginScreen() : HomeScreen(),
+        ),
+      );
     });
   }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medical/features/home/presentation/view/widgets/ecg_line.dart';
 import 'package:medical/features/home/presentation/view/widgets/vital_card_container.dart';
+import 'package:medical/features/home/presentation/view_model/fetch_patient_info/fetch_patient_info_cubit.dart';
 
 class HeartRateCard extends StatelessWidget {
   const HeartRateCard({super.key});
@@ -26,7 +28,7 @@ class HeartRateCard extends StatelessWidget {
               ),
               SizedBox(width: 50),
               Text(
-                '75 bpm',
+                '${context.read<FetchPatientInfoCubit>().patientInfoModel!.heartRate} bpm',
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,

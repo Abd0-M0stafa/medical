@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medical/features/home/presentation/view/widgets/tempreture_bar.dart';
 import 'package:medical/features/home/presentation/view/widgets/vital_card_container.dart';
+import 'package:medical/features/home/presentation/view_model/fetch_patient_info/fetch_patient_info_cubit.dart';
 
 class TemperatureCard extends StatelessWidget {
   const TemperatureCard({super.key});
@@ -30,7 +32,7 @@ class TemperatureCard extends StatelessWidget {
               SizedBox(width: 50),
 
               Text(
-                '36.8°C',
+                '${context.read<FetchPatientInfoCubit>().patientInfoModel!.temp}°C',
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -40,7 +42,13 @@ class TemperatureCard extends StatelessWidget {
             ],
           ),
           SizedBox(height: 14),
-          TemperatureBar(value: 36.8, min: 36.5, max: 37.5),
+          TemperatureBar(
+            value: double.parse(
+              context.read<FetchPatientInfoCubit>().patientInfoModel!.temp,
+            ),
+            min: 36.5,
+            max: 37.5,
+          ),
           SizedBox(height: 12),
           Text(
             'Normal Range: 36.5° - 37.5°',
