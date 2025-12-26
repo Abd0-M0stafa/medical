@@ -4,12 +4,15 @@ import '../theme/app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String title;
-  final VoidCallback onPressed;
-
+  final VoidCallback? onPressed;
+  final bool isLoading;
+  final Color? color;
   const PrimaryButton({
     super.key,
     required this.title,
-    required this.onPressed,
+    this.onPressed,
+    this.isLoading = false,
+    this.color,
   });
 
   @override
@@ -19,13 +22,17 @@ class PrimaryButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primaryBlue,
+          backgroundColor: color ?? AppColors.primaryBlue,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
         ),
         onPressed: onPressed,
-        child: Text(title, style: TextStyle(color: Colors.white)),
+        child: isLoading
+            ? CircularProgressIndicator(
+                color: const Color.fromARGB(255, 61, 61, 61),
+              )
+            : Text(title, style: TextStyle(color: Colors.white)),
       ),
     );
   }
