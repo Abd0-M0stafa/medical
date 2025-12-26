@@ -6,17 +6,24 @@ class PatientStatusHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        Text('Patient Status: Stable', style: AppTextStyles.title),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
         Row(
-          children: [
-            Icon(Icons.circle, color: Colors.green, size: 10),
-            SizedBox(width: 6),
-            Text('Live', style: AppTextStyles.subtitle),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Text('Patient Status: Stable', style: AppTextStyles.title),
+            Row(
+              children: [
+                Icon(Icons.circle, color: Colors.green, size: 10),
+                SizedBox(width: 6),
+                Text('Live Update', style: AppTextStyles.subtitle),
+              ],
+            ),
           ],
         ),
+        const SizedBox(height: 6),
+        const Text('Last Reading: Just Now', style: AppTextStyles.subtitle),
       ],
     );
   }

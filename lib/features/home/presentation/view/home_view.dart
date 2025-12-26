@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medical/features/alerts/presentation/view/widgets/alerts_badge_icon.dart';
 import 'package:medical/features/home/presentation/view/widgets/patient_status_header.dart';
-import 'package:medical/features/home/presentation/view/widgets/vitals_grid.dart';
+import 'package:medical/features/home/presentation/view/widgets/vitals_section.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,16 +12,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Patient Overview'),
-        actions: const [AlertsBadgeIcon(hasUnread: true)],
+        title: const Text('Alerts'),
+        actions: const [AlertsBadgeIcon(hasUnread: true), SizedBox(width: 12)],
       ),
       body: const Padding(
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
             PatientStatusHeader(),
-            SizedBox(height: 24),
-            Expanded(child: VitalsGrid()),
+            SizedBox(height: 16),
+            Expanded(child: VitalsSection()),
+            SizedBox(height: 12),
           ],
         ),
       ),

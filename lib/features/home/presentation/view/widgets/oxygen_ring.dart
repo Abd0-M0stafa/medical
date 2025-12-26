@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+import 'package:medical/features/home/presentation/view/widgets/oxygen_painter.dart';
+
+class OxygenRing extends StatelessWidget {
+  const OxygenRing({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 110,
+      height: 110,
+      child: CustomPaint(
+        painter: OxygenPainter(percentage: 0.98),
+        child: const Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '98%',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF0B5CFF),
+                ),
+              ),
+              Text('SpO₂', style: TextStyle(color: Colors.grey)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
