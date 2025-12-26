@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medical/features/alerts/presentation/view/widgets/alerts_badge_icon.dart';
+import 'package:medical/features/home/presentation/view/widgets/logout_dialog.dart';
 import 'package:medical/features/home/presentation/view/widgets/patient_status_header.dart';
 import 'package:medical/features/home/presentation/view/widgets/vitals_section.dart';
-import '../../../../core/theme/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +15,22 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-            SizedBox(height: 60, child: Image.asset('assets/images/logo.png')),
+            Row(
+              children: [
+                SizedBox(
+                  height: 60,
+                  child: Image.asset('assets/images/logo.png'),
+                ),
+
+                Spacer(),
+                IconButton(
+                  color: Colors.red,
+
+                  onPressed: () => showLogoutDialog(context),
+                  icon: Icon(Icons.logout_outlined),
+                ),
+              ],
+            ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             PatientStatusHeader(),
             SizedBox(height: 16),
@@ -27,4 +41,12 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void showLogoutDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => const LogoutDialog(),
+  );
 }
