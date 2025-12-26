@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical/features/auth/presentation/view/register_screen.dart';
 import 'package:medical/features/home/presentation/view/home_view.dart';
 
 void main() {
@@ -10,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const HomeScreen());
+    return MaterialApp(home: const RegisterScreen());
   }
 }

@@ -18,4 +18,11 @@ class AppTextStyles {
     fontSize: 13,
     color: AppColors.textSecondary,
   );
+  static const authTitle = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: AppColors.textPrimary,
+  );
+
+  static const authSubtitle = TextStyle(fontSize: 14, color: Colors.grey);
 }
