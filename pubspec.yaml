@@ -40,6 +40,7 @@ dependencies:
   hive_flutter: ^1.1.0
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   build_runner: ^2.5.4
   flutter_lints: ^5.0.0
   flutter_test:
@@ -81,3 +82,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_logo.png"
+  adaptive_icon_background: "#FFFFFF"
