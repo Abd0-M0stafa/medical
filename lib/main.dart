@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:medical/core/utils/get_user_data.dart';
 import 'package:medical/core/utils/hive_box_keys.dart';
 import 'package:medical/features/auth/data/models/user_model.dart';
-import 'package:medical/features/auth/presentation/view/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:medical/features/home/presentation/view/home_view.dart';
-import 'package:medical/features/splash/presentation/view/splah__screen..dart';
+import 'package:medical/features/splash/presentation/view/splah_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -14,6 +13,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserModelAdapter());
   await Hive.openBox<UserModel>(HiveBoxKeys.user);
+  GetUserData.instance.getUserDataInit();
 
   runApp(const MyApp());
 }
@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }
