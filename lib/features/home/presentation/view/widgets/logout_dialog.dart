@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medical/core/utils/get_user_data.dart';
+import 'package:medical/features/auth/presentation/view/login_screen.dart';
 
 class LogoutDialog extends StatelessWidget {
   const LogoutDialog({super.key});
@@ -66,12 +68,14 @@ class LogoutDialog extends StatelessWidget {
 
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
-                      // TODO: نفذ تسجيل الخروج هنا
-                      Navigator.pop(context);
+                    onPressed: () async {
+                      await GetUserData.instance.deleteUserData();
+                      GetUserData.instance.getUserDataInit();
 
-                      // مثال:
-                      // context.read<AuthCubit>().logout();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,

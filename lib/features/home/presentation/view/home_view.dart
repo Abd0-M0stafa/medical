@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medical/core/networking/dio_service.dart';
 import 'package:medical/features/home/presentation/data/data_sources/home_api_datasource.dart';
 import 'package:medical/features/home/presentation/data/repositories/home_repository.dart';
+import 'package:medical/features/home/presentation/view/widgets/emergency_sos_dialog.dart';
 import 'package:medical/features/home/presentation/view/widgets/logout_dialog.dart';
 import 'package:medical/features/home/presentation/view/widgets/patient_status_header.dart';
 import 'package:medical/features/home/presentation/view/widgets/vitals_section.dart';
@@ -27,7 +28,11 @@ class HomeScreen extends StatelessWidget {
           builder: (context) {
             return BlocConsumer<FetchPatientInfoCubit, FetchPatientInfo>(
               listener: (context, state) {
-                // TODO: implement listener
+                if (state is FetchPatientInfoSuccess) {
+                  if (state.patientInfoModel.alert == '1') {
+                    showEmergencyDialog(context);
+                  }
+                }
               },
               builder: (context, state) {
                 if (state is FetchPatientInfoSuccess) {
@@ -83,5 +88,13 @@ void showLogoutDialog(BuildContext context) {
     context: context,
     barrierDismissible: false,
     builder: (context) => const LogoutDialog(),
+  );
+}
+
+void showEmergencyDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => const EmergencySOSDialog(),
   );
 }

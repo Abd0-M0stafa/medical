@@ -20,7 +20,18 @@ class PatientStatusHeader extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(Icons.circle, color: Colors.green, size: 10),
+                Icon(
+                  Icons.circle,
+                  color:
+                      context
+                              .read<FetchPatientInfoCubit>()
+                              .patientInfoModel!
+                              .state ==
+                          '0'
+                      ? Colors.red
+                      : Colors.green,
+                  size: 10,
+                ),
                 SizedBox(width: 6),
               ],
             ),

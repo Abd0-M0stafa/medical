@@ -16,9 +16,4 @@ class HiveLocalDatasource extends LocalDatasource {
   UserModel? getUserData() {
     return _box.get(UserKeys.loggedUser);
   }
-
-  @override
-  Future<void> deleteUser() async {
-    return await _box.delete(UserKeys.loggedUser);
-  }
 }

@@ -1,6 +1,6 @@
 class PatientInfoModel {
   final String state;
-  final String alert;
+  String alert;
   final String temp;
   final String oxygen;
   final String heartRate;
