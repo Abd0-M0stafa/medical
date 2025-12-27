@@ -12,8 +12,21 @@ import 'package:medical/features/home/presentation/view/widgets/vitals_section.d
 import 'package:medical/features/home/presentation/view_model/fetch_patient_info/fetch_patient_info_cubit.dart';
 import 'package:medical/features/home/presentation/view_model/fetch_patient_info/fetch_patient_info_states.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool _isEmergencyDialogOpen = false;
+  late AudioPlayer player;
+  @override
+  void initState() {
+    player = AudioPlayer();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +44,6 @@ class HomeScreen extends StatelessWidget {
               listener: (context, state) {
                 if (state is FetchPatientInfoSuccess) {
                   if (state.patientInfoModel.alert == '1') {
-                    AudioPlayer().play(AssetSource(''));
                     showEmergencyDialog(context);
                   }
                 }
@@ -83,6 +95,26 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
+  void showEmergencyDialog(BuildContext context) {
+    if (_isEmergencyDialogOpen) return;
+
+    _isEmergencyDialogOpen = true;
+    player.play(AssetSource('sounds/warning.wav'));
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => EmergencySOSDialog(
+        onPressed: () async {
+          await player.stop();
+          _isEmergencyDialogOpen = false;
+          Navigator.pop(context);
+        },
+      ),
+    ).then((value) {
+      _isEmergencyDialogOpen = false;
+    });
+  }
 }
 
 void showLogoutDialog(BuildContext context) {
@@ -90,13 +122,5 @@ void showLogoutDialog(BuildContext context) {
     context: context,
     barrierDismissible: false,
     builder: (context) => const LogoutDialog(),
-  );
-}
-
-void showEmergencyDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (context) => const EmergencySOSDialog(),
   );
 }

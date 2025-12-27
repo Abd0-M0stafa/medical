@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class EmergencySOSDialog extends StatelessWidget {
-  const EmergencySOSDialog({super.key});
-
+  const EmergencySOSDialog({super.key, this.onPressed});
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     final String formattedDate = DateFormat(
@@ -90,13 +90,15 @@ class EmergencySOSDialog extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
-                      // TODO:
-                      // - Notify doctor
-                      // - Open patient location
-                      // - Start call
-                      Navigator.pop(context);
-                    },
+                    onPressed:
+                        onPressed ??
+                        () {
+                          // TODO:
+                          // - Notify doctor
+                          // - Open patient location
+                          // - Start call
+                          Navigator.pop(context);
+                        },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.red,
