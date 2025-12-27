@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medical/features/home/presentation/view/widgets/oxygen_painter.dart';
+import 'package:medical/features/home/presentation/view_model/fetch_patient_info/fetch_patient_info_cubit.dart';
 
 class OxygenRing extends StatelessWidget {
   const OxygenRing({super.key});
@@ -11,12 +13,12 @@ class OxygenRing extends StatelessWidget {
       height: 100,
       child: CustomPaint(
         painter: OxygenPainter(percentage: 0.98),
-        child: const Center(
+        child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                '98%',
+                '${context.read<FetchPatientInfoCubit>().patientInfoModel!.oxygen}%',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
