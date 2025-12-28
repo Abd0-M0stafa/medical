@@ -17,9 +17,9 @@ class PatientInfoModel {
     return PatientInfoModel(
       state: json['state'],
       alert: json['alert'],
-      temp: json['temp'],
-      oxygen: json['spo2'],
-      heartRate: json['bpm'],
+      temp: json['temp'].toString(),
+      oxygen: json['spo2'].toString(),
+      heartRate: json['bpm'].toString(),
     );
   }
 }
